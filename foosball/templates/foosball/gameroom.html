@@ -1,0 +1,24 @@
+{% extends "foosball/base1.html" %}
+{% load static %}
+{% block navbar %}
+
+    {% include "foosball/navbar_nologo.html" %}
+{% endblock %}
+{% block mainbody %}
+<div id="wrapper" class="toggled">
+	<!-- Sidebar -->
+    {% include "foosball/sidebar.html" %}
+
+        <!-- /#sidebar-wrapper -->
+	<!-- /#sidebar-wrapper -->
+	<!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="post-body">
+            <div class="post-body-second">
+                {% include "foosball/sub_gameroom.html" %}
+        </div>
+    </div>
+    </div>
+</div>
+<script type="text/javascript" src="{% static 'foosball/js/gameroom_socket.js' %}"></script>
+{% endblock %}

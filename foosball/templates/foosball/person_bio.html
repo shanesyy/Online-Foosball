@@ -1,0 +1,90 @@
+{% extends "foosball/base1.html" %}
+{% block navbar %}
+    {% include "foosball/navbar_nologo.html" %}
+{% endblock %}
+{% block mainbody %}
+<div id="wrapper" class="toggled">
+	<!-- Sidebar -->
+    {% include "foosball/sidebar.html" %}
+    <!-- /#sidebar-wrapper -->
+	<!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="post-body">
+            <div class="post-body-second">
+
+<div class="comment">
+    <div class="row">   
+        <div class="col-md-4" style="text-align: center;">
+            {% if cur_profile.picture %}
+            <img src="{% url 'photo' cur_id %}" width="170" height="170" alt="" class="rounded-circle img-raised"><br><br>
+            {% endif %}
+            <div class="author">
+                <label>Username: </label>
+                <h4 class="Username">{{ cur_profile.user.username }}</h4>
+                <label>Score: </label>
+                <h4 class="Username">{{ cur_profile.total_scores }}</h4>
+                {% if cur_profile.user == user %}
+                    <form enctype="multipart/form-data" method="POST" action="{% url 'upload_photo' cur_id %}">    
+                     <br>
+                    <label>Upload Photo: </label> <br>  {{form.picture}}
+                    <button class="btn btn-primary btn-sm" type="submit"> Save </button>
+                    {%csrf_token%}
+                    </form>
+                {% else %}
+                    {% if is_followed %}
+                        <a class="btn btn-primary btn-round" href="{% url 'unfollow' cur_id %}">
+                         unfollow 
+                        </a>
+                    {% else %}
+                        <a class="btn btn-primary btn-round" href="{% url 'follow' cur_id %}">
+                         follow 
+                        </a>
+                    {% endif %}
+                {% endif %}
+            </div>           
+        </div>
+        <div class="col-md-8">
+            <div class="card-group">
+                <div class="card">
+            <div class="card-body">
+                <h5 class="="card-title"> Game History</h5>
+                <table style="width:100%">
+                  <tr style="text-align:center">
+                    <th>Duration</th>
+                    <th>Result</th> 
+                    <th>Goal</th>
+                    <th>Team</th>
+                    <th>Rival</th>
+                    <th>Time</th>
+                  </tr>
+                  {% for duration, team, profile in gameprofiles %}
+                  <tr>
+                    <td style="color: #2affd8">{{ duration }}</td>
+                    {% if profile.result %}
+                        <td style="color: yellow">Win</td>
+                    {% else %}
+                        <td style="color: red">Lose</td>
+                    {% endif %}
+                    <td>{{ profile.score }}:{{ profile.guest.score }}</td>
+                    <td>{{ team }}</td>
+                    <td>{{ profile.guest.user.username }}</td>
+                    <td>{{ profile.start_time }}</td>
+                  </tr>
+
+                  {% endfor %}
+                </table>
+            </div>    
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+
+        
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

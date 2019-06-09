@@ -1,0 +1,15 @@
+<div id = "{{ player.seq }}" class="card text-center">
+  <div class="card-body">
+    <img src= "{% url 'team_photo' player.team %}"  height="200" alt="Rounded Image" class="rounded">
+    <h5 class="card-title">Player {{ player.number }}</h5>
+    {% if player.status == False %}
+    <span class="badge badge-primary">Prepare</span>
+    {% endif %}
+    {% if player.status == True %}
+    <span class="badge badge-success">Ready</span>
+    {% endif %}
+    <p class="card-text">{{ player.user.username }}</p>
+    
+    
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div id = "{{room.id}}" class="col-md-4">
+  <div class="card text-center">
+    <img class="card-img-top" src="/static/foosball/img/room1.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Game Room {{room.id}}</h5>
+      <!-- <p class="card-text">This is </p> -->
+      <!-- <i class="users_single-02"></i> -->
+      <img src="/static/foosball/img/players{{room.player_num}}.png" height="30" alt="Rounded Image" class="rounded">
+      <div></div>
+      {% if room.status == "s4" %}
+        <button class="btn btn-primary" action = "submit" name = "{{room.id}}" disabled>In game</button>
+      {% else %}
+        <!-- <button class="btn btn-primary" action = "submit" name = "{{id}}">Join </button> -->
+        <button class="btn btn-primary" name = "{{room.id}}">Join It</button>
+      {% endif %}
+      <p class="card-text"><small class="text-muted">Owner: {{ room.owner.username }}</small></p>
+      <p class="card-text"><small class="text-muted">Status: {{ room.get_status_display }}</small></p>
+    </div>
+  </div>
+</div>

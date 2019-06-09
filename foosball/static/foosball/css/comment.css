@@ -1,0 +1,204 @@
+
+h4 small, h4 .small, .h4 small, .h4 .small, h5 small, h5 .small, .h5 small, .h5 .small, h6 small, h6 .small, .h6 small, .h6 .small {
+    font-size: 75%;
+    color: dimgray;
+}
+
+.author 
+{
+    color: #ffffff;
+}
+.author h4 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+    color: #ffffff;
+
+}
+.author h4 .small {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 10%;
+
+}
+.comment .post{
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-bottom: 25px;
+    font-size: 10px;
+    color: #333333;
+    text-align: left;
+}
+
+.post{
+    border-bottom: 1px dotted #DDDDDD;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.post .account-photo .photo, .account-photo .photo, .photo-container .img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+.comment .account-photo .photo, .account-photo .photo {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.comment .username {
+    font-weight: 500;
+    font-size: 20px;
+    word-break: break-word;
+    color: #ffffff;
+}
+
+
+.username a{
+    color: black;
+}
+
+.post .content {
+    font-size: 17px;
+    word-break: break-word;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.comment .content {
+    font-size: 17px;
+    word-break: break-word;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.comment .comment-reply-btn .btn-sm
+{
+	border-radius: 60%;
+	background: #67669ea3;
+	border: 1px solid rgba(0,158,255,0.65);
+    border-color: #ccc;
+
+}
+
+.post-body {
+    width: 100%;
+    margin: 10px;
+    padding: 20px;
+}
+
+.post-body-second {
+    background-color: #bdbdbd00;
+    width: 98%;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 40px;
+    border:0px solid rgba(0,158,255,0.65);
+    border-color: #e6d8d8;
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+}
+.text-center
+{
+    text-align: center;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-md-offset-2
+{
+	margin-left: 15%
+}
+
+.account-photo {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 3px solid rgba(0,158,255,0.65);
+    border-color: #ccc;
+}
+
+.comment .account-photo {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 50%;
+    border: 3px solid rgba(0,158,255,0.65);
+    border-color: #ccc;
+}
+
+.account-photo .photo {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+.bg {
+    background: url('static/socialnetwork/img/bg4.jpg') fixed;
+}
+.bg:before{
+    /*background-color: rgba(0, 0, 0, 0.1);*/
+}
+
+.profile {
+    background-color: #fff0;
+    background-color: #efe3e3bf;
+    margin-top: 30px;
+    padding: 50px;
+    border-radius:10px;
+    height: 600px; 
+}
+
+/*.information, .information h6 small
+{
+    text-align: left;
+    color: #ffffff;
+}*/
+
+.card-deck .card {
+    /*background-color: #ffffff00;*/
+    color: #ffffff;
+    box-shadow: none;
+}
+
+.card-deck .card .card-body {
+    min-height: 100px;
+    color: #111;
+}
+
+.card-group .card {
+    color: #ffffff;
+    background-color: #ffffff00;
+    margin-bottom: 0px;
+    box-shadow: none;
+}
+
+.card-group .card-body .row .col-md-4 .card-title { 
+    color: #ffffff;
+}
+
+.author input {
+    width: 70px;
+}
+
+.link-to-profile a {
+    color: #ffffff;
+}
+
+.link-to-profile a:hover {
+    color: #ffffff;
+    /*text-decoration: none;*/
+}

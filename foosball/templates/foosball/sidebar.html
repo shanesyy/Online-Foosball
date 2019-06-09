@@ -1,0 +1,89 @@
+{% load static %}
+<!-- Sidebar -->
+    <div class="profile-page">
+        <div id="sidebar-wrapper" >
+        <div class="wrapper">
+            <div class="page-header page-header-small" >       
+                <div class="container">
+                    <div class="content-center">
+                            <img src="{% url 'photo' user.id %}" width="100" height="100" class="rounded-circle img-raised" alt="">
+                        <h3 class="title link-to-profile"><a href="{% url 'profile' user.id %}">{{ user.username }}</a></h3>
+                        <p class="category">score: {{user.own.total_scores}} </p>
+                        {% if page == 'home' %}
+                        <a class="btn btn-warning btn-fill" href="{% url 'create_room' %}">Create Room</a>
+                        {% endif %}
+                        {% if page == 'gameroom' %}
+                            {% if room_status != 's4' %}
+                                {% if is_ready == True %}
+                                    <a href="{% url 'cancel_ready' %}" class="btn btn-danger">Cancel</a>
+                                {% else %}
+                                  {% if is_owner == True %}
+                                    <a href="{% url 'get_ready' %}" class="btn btn-success" id="start">Start</a>
+                                  {% else %}
+                                    <a href="{% url 'get_ready' %}" class="btn btn-success">Ready</a>
+                                  {% endif %}
+                                {% endif %}
+                            {% else %}
+                                <a href="{% url 'game' room_id%}" class="btn btn-success">Restart</a>
+                            {% endif %}
+                                <a href="{% url 'quit_room' room_id %}" class="btn btn-danger"> Quit </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+                <!-- follow and follower -->
+        <!-- <div class="col-md-4"> -->
+            <!-- information -->
+            <div class="card" style="background-color: #ebf1e900;height: 500px;overflow: scroll;">
+                <ul class="nav nav-tabs justify-content-center" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#leaders" role="tab" aria-expanded="false">Leaderboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#follower" role="tab" aria-expanded="false">Friends</a>
+                    </li>
+                </ul>
+                <div class="card-body">
+                            <!-- Tab panes -->
+                    <div class="tab-content text-center">
+                        <div class="tab-pane active" id="leaders" role="tabpanel" aria-expanded="false">
+                        </div>
+                        <div class="tab-pane" id="follower" role="tabpanel" aria-expanded="false">
+                            <div class="row">
+                                <div class="col-md-12 col-md-offset-4">
+                                    <ul class="list-unstyled follows">           
+                                        {% for friend in followings %}
+                                        <li>
+                                            <div class="row">      
+                                                <div class="col-md-4 col-xs-5">
+                                                    <!-- <div class="account-photo"> -->
+                                                    <img class="rounded-circle img-raised" src="{% url 'photo' friend.id %}" alt="">
+<!--                                                     </div> -->
+                                                </div>
+                                                <div class="col-md-4 col-xs-0">
+                                                    <h6><a href="{% url 'profile' friend.id %}">{{ friend.username }}</a><br>
+                                                        <small>score: {{friend.own.total_scores}}</small>
+                                                    </h6>
+                                                </div>
+                                                <div class="col-md-3 col-xs-0">
+                                                    <a class="btn btn-primary btn-round" href="{% url 'unfollow' friend.id %}">
+                                                     unfollow 
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        {% endfor %}    
+                                    </ul>
+                                    <!-- <div class="tab-pane text-center" id="following">
+                                        <a class="btn btn-warning btn-fill" href="{% url 'home' %}">Find more people</a>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <script src="{% static 'foosball/js/sidebar_ajax.js' %}" type="text/javascript"></script> -->

@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-12 col-md-offset-4">
+        <div class="row">      
+            <div class="col-md-4 col-xs-5">
+                <img src="{% url 'photo' leader.user.id %}" alt="leader Image" class="rounded-circle img-raised" width="30" height="30">
+            </div>
+            <div class="col-md-4 col-xs-0" >
+                <h6><a href="{% url 'profile' leader.user.id %}">{{ leader.user.username }}</a><br>
+                    <small>score: {{leader.total_scores}}</small>
+                </h6>
+            </div>
+            <div class="col-md-4 col-xs-0 leader">
+                {% if leader.user.id != user_id %}
+                    {% if followed %}
+                        <a class="btn btn-primary btn-round" href="{% url 'unfollow' leader.user.id %}">
+                         unfollow 
+                        </a>
+                    {% else %}
+                   <!--      <a class="btn btn-primary" href="{% url 'follow' leader.user.id %}">
+                         follow 
+                        </a> -->
+<!--                             <a class="btn btn-danger btn-sm btn-simple btn-icon  btn-icon-mini btn-round" href="{% url 'follow' leader.user.id %}" >
+                            <i class="now-ui-icons ui-2_favourite-28"></i>
+                            </a> -->
+                            <a class="btn btn-primary btn-round" href="{% url 'follow' leader.user.id %}">
+                                <i class="now-ui-icons ui-2_favourite-28"></i> follow
+                            </a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

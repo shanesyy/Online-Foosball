@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	{% load static %}
+	<script>
+		var bgArenaSrc = "{% static 'foosball/img/game/arena.png' %}";
+		var bgFieldSrc = "{% static 'foosball/img/game/field.png' %}";
+		var ballImgSrc = "{% static 'foosball/img/game/ball_roll.png' %}";
+		var leftPlayerSrc = "{% static 'foosball/img/game/left.png' %}";
+		var rightPlayerSrc = "{% static 'foosball/img/game/right.png' %}";
+		var leftOnCollPlayerSrc = "{% static 'foosball/img/game/left_player_coll.png' %}";
+		var rightOnCollPlayerSrc = "{% static 'foosball/img/game/right_player_coll.png' %}";
+		var leftStickSrc = "{% static 'foosball/img/game/stick_left.png' %}";
+		var rightStickSrc = "{% static 'foosball/img/game/stick_right.png' %}";
+		var startImgSrc = "{% static 'foosball/img/game/but_kickoff.png' %}";
+		var loseImgSrc = "{% static 'foosball/img/game/decoration/lose.png' %}";
+		var winImgSrc = "{% static 'foosball/img/game/decoration/win.png' %}";
+
+		var audioPrepareSrc = "{% static 'foosball/sounds/game/prepare.mp3' %}";
+		var audioStartSrc = "{% static 'foosball/sounds/game/start.mp3' %}";
+		var audioBallKickSrc = "{% static 'foosball/sounds/game/ball_kick.mp3' %}";
+		var audioBallWallSrc = "{% static 'foosball/sounds/game/ball_wall.mp3' %}";
+		var audioGoalSrc = "{% static 'foosball/sounds/game/goal.mp3' %}";
+		var audioGoalSuccessSrc = "{% static 'foosball/sounds/game/goal_success.mp3' %}";
+		var audioGoalMissSrc = "{% static 'foosball/sounds/game/goal_miss.mp3' %}";
+		var audioGameWinSrc = "{% static 'foosball/sounds/game/game_win.mp3' %}";
+		var audioGameOverSrc = "{% static 'foosball/sounds/game/game_over.mp3' %}";
+
+		var leftAdSrc = "{% static 'foosball/img/ad/Flyer_MESSI.jpg' %}";
+		var rightAdSrc = "{% static 'foosball/img/ad/Nike-Print-Ads-5.jpg' %}";
+		var webAdSrc = "{% static 'foosball/img/ad/webapps.png' %}";
+
+		var leftPlayer = "{{ left_player.username }}";
+		var rightPlayer = "{{ right_player.username }}";
+		var initAngle = {{ init_angle }};
+		var roomId = {{ room_id }};
+		var side = "{{ side }}";
+		var leftScore = {{ left_score }};
+		var rightScore = {{ right_score }};
+		var firstIn = {{ first_in }};
+
+		function exitGame() {
+			window.location = "{% url 'home' %}";
+		}
+	</script>
+	<script type="text/javascript" src="{% static 'foosball/js/advertisement/ad.js' %}"></script>
+	<link href="{% static 'foosball/css/bootstrap.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'foosball/css/game.css' %}" rel="stylesheet" />
+	<title>Online Foosball</title>
+</head>
+<body bgcolor="black">
+		<div id="states" class="row">
+			<div class="col-md-2 exitGame">
+			    <img src="{% static 'foosball/img/game/decoration/exit.png' %}" onclick=exitGame()>
+			</div>
+			<div class="col-md-2 portrait">
+				<img src="{% url 'photo' left_player.id %}" width="100" height="100" class="rounded-circle img-raised">
+				<h3 class="title">{{ left_player.username }}</h3>
+			</div>
+			<div class="col-md-4 scoreboard">
+				<img src="{% static 'foosball/img/game/decoration/score_panel.png' %}">
+				<!-- <div class="row score"> -->
+				<h1 id="left-score"> {{ left_score }} </h1>
+				<h1 id="right-score"> {{ right_score }} </h1>
+			    <!-- </div> -->
+			</div>
+			<div class="col-md-2 portrait">
+				<img src="{% url 'photo' right_player.id %}" width="100" height="100" class="rounded-circle img-raised" alt="">
+				<h3 class="title">{{ right_player.username }}</h3>
+			</div>
+			<div class="col-md-2">
+			</div>
+		</div>
+		<div id="game">
+			<div class = "all_bg">
+				<div id = "canvas">
+					<canvas id="canvas0" width="800" height="650"></canvas>
+					<canvas id="canvas1" width="800" height="650"></canvas>
+				</div>
+			</div>
+			<script type="text/javascript" src="{% static 'foosball/js/game/main.js' %}"></script>
+			<script type="text/javascript" src="{% static 'foosball/js/game/helper.js' %}"></script>
+			<Script type="text/javascript" src="{% static 'foosball/js/game/bg.js' %}"></Script>
+			<Script type="text/javascript" src="{% static 'foosball/js/game/paddle.js' %}"></Script>
+			<Script type="text/javascript" src="{% static 'foosball/js/game/ball.js' %}"></Script>
+			<Script type="text/javascript" src="{% static 'foosball/js/game/count.js' %}"></Script>
+			<Script type="text/javascript" src="{% static 'foosball/js/game/sound.js' %}"></Script>
+		</div>
+</body>
+</html>

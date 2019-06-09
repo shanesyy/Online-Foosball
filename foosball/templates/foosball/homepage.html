@@ -1,0 +1,103 @@
+<div class="row">
+
+
+  {% for gameroom in gamerooms %}
+  <div id = "{{ gameroom.id}}"" class="col-md-4">
+  <div class="card text-center">
+    <img class="card-img-top" src="/static/foosball/img/room1.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Game Room {{ gameroom.id}}</h5>
+      <!-- <p class="card-text">This is </p> -->
+      <!-- <i class="users_single-02"></i> -->
+      <img src="/static/foosball/img/players1.png" height="30" alt="Rounded Image" class="rounded">
+      <p></p>
+      <form method="POST" action="{% url 'join_room' gameroom.id %}">
+      <button class="btn btn-primary" action = "submit" >Join It</button>
+      {% csrf_token %}
+      </form>
+
+      <p class="card-text"><small class="text-muted">Status: {{ gameroom.status }}}</small></p>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+
+<div class="card-deck">
+  <div class="card text-center">
+    <img class="card-img-top" src="/static/foosball/img/room1.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Game Room 1</h5>
+      <!-- <p class="card-text">This is </p> -->
+      <!-- <i class="users_single-02"></i> -->
+      <img src="/static/foosball/img/players1.png" height="30" alt="Rounded Image" class="rounded">
+      <p></p>
+      <a href="#" class="btn btn-primary">Join It</a>
+      <p class="card-text"><small class="text-muted">Status: Idle</small></p>
+    </div>
+  </div>
+  <div class="card text-center">
+    <img class="card-img-top" src="/static/foosball/img/room1.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Game Room 2</h5>
+      <!-- <p class="card-text">This is </p> -->
+      <!-- <i class="users_single-02"></i> -->
+      <img src="/static/foosball/img/players4.png" height="30" alt="Rounded Image" class="rounded">
+      <p></p>
+      <a href="#" class="btn btn-secondary">Join It</a>
+      <p class="card-text"><small class="text-muted">Status: In Game</small></p>
+    </div>
+  </div>
+
+  <div class="card text-center">
+    <img class="card-img-top" src="/static/foosball/img/room1.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Game Room 3</h5>
+      <!-- <p class="card-text">This is </p> -->
+      <!-- <i class="users_single-02"></i> -->
+      <img src="/static/foosball/img/players2.png" height="30" alt="Rounded Image" class="rounded">
+      <p></p>
+      <a href="#" class="btn btn-primary">Join It</a>
+      <p class="card-text"><small class="text-muted">Status: Idle</small></p>
+    </div>
+  </div>
+</div>
+
+<div class="card-deck">
+  <div class="card text-center">
+    <img class="card-img-top" src="/static/foosball/img/room1.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Game Room 4</h5>
+      <!-- <p class="card-text">This is </p> -->
+      <img src="/static/foosball/img/players4.png" height="30" alt="Rounded Image" class="rounded">
+      <p></p>
+      <a href="#" class="btn btn-secondary">Join It</a>
+      <p class="card-text"><small class="text-muted">Status: In Game</small></p>
+    </div>
+  </div>
+  <div class="card text-center">
+    <img class="card-img-top" src="/static/foosball/img/room1.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Game Room 5</h5>
+      <!-- <p class="card-text">This is </p> -->
+      <img src="/static/foosball/img/players2.png" height="30" alt="Rounded Image" class="rounded">
+      <p></p>
+      <a href="#" class="btn btn-primary">Join It</a>
+      <p class="card-text"><small class="text-muted">Status: Idle</small></p>
+    </div>
+  </div>
+
+  <div class="card text-center">
+    <img class="card-img-top" src="/static/foosball/img/room1.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Game Room 6</h5>
+      <!-- <p class="card-text">This is </p> -->
+      <img src="/static/foosball/img/players3.png" height="30" alt="Rounded Image" class="rounded">
+      <p></p>
+      <a href="#" class="btn btn-primary">Join It</a>
+      <p class="card-text"><small class="text-muted">Status: Idle</small></p>
+    </div>
+  </div>
+</div>
